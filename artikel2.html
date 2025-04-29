@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apa Itu Bootstrap 5? - Aliema Blog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -23,71 +23,111 @@
       top: 0;
       z-index: 100;
     }
+
     .logo {
       font-size: 24px;
       font-weight: 600;
       color: #3a3a3a;
       text-decoration: none;
     }
+
     nav {
       display: flex;
       gap: 20px;
     }
+
     nav a {
       text-decoration: none;
       color: #3a3a3a;
       font-size: 16px;
     }
-    .search-bar input {
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+
+    .article-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
     }
 
-    main {
-      display: flex;
-      padding: 40px;
-      gap: 30px;
-      justify-content: center;
-    }
-    .article-content {
-      max-width: 800px;
-      text-align: left;
-    }
-    .article-content h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-    .article-content p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .article-content img {
+    .article-container img {
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 20px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .article-content {
+      padding: 30px;
     }
 
     .article-meta {
-      font-size: 12px;
+      font-size: 13px;
       color: #777;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
-    .pagination {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
+    .article-title {
+      font-size: 28px;
+      margin-bottom: 15px;
+      font-weight: 600;
     }
-    .pagination button {
-      padding: 8px 12px;
+
+    .article-body p, .article-body ul {
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .share-buttons, .related-articles, .comments-section {
+      margin-top: 40px;
+    }
+
+    .share-buttons button {
+      padding: 8px 16px;
+      margin-right: 10px;
       border: none;
       background-color: #e3d4cf;
       cursor: pointer;
       border-radius: 5px;
+    }
+
+    .related-articles ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .related-articles li {
+      margin-bottom: 10px;
+    }
+
+    .pagination {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .pagination a {
+      padding: 8px 16px;
+      text-decoration: none;
+      background-color: #e3d4cf;
+      border-radius: 5px;
+      color: #3a3a3a;
+    }
+
+    .comments-section input,
+    .comments-section textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .comments-list p {
+      margin-bottom: 10px;
     }
 
     footer {
@@ -96,8 +136,16 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      margin-top: 60px;
     }
 
+    .footer-bottom {
+      text-align: center;
+      padding: 20px;
+      background-color: #d3c2bd;
+      font-size: 14px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -109,29 +157,58 @@
     </nav>
   </header>
 
-  <main>
+  <div class="article-container">
+    <img src="artikel2.png" alt="Bootstrap 5" />
     <div class="article-content">
-      <h1>Apa Itu Bootstrap 5?</h1>
       <div class="article-meta">28 April 2025 | Desain | oleh Amelia</div>
-      <img src="artikel2.png" alt="Bootstrap 5">
-      <p>Bootstrap 5 adalah framework CSS yang paling populer untuk membangun antarmuka pengguna yang responsif dan mobile-first. Dikembangkan oleh tim di Twitter, Bootstrap kini menjadi pilihan utama banyak pengembang web dalam membangun desain web yang cepat dan konsisten.</p>
+      <div class="article-title">Apa Itu Bootstrap 5?</div>
+      <div class="article-body">
+        <p>Bootstrap 5 adalah framework CSS yang paling populer untuk membangun antarmuka pengguna yang responsif dan mobile-first...</p>
+        <ul>
+          <li><strong>Grid System</strong> - Sistem grid fleksibel.</li>
+          <li><strong>Komponen UI</strong> - Termasuk tombol, form, dll.</li>
+          <li><strong>Utilities</strong> - Utilitas styling cepat.</li>
+          <li><strong>Desain Responsif</strong> - Cocok untuk semua ukuran layar.</li>
+          <li><strong>Tanpa jQuery</strong> - Kini lebih ringan.</li>
+        </ul>
+        <p>Mulai dari <a href="https://getbootstrap.com" target="_blank">situs resmi Bootstrap</a>.</p>
+      </div>
 
-      <p>Dengan Bootstrap 5, pengembang bisa membuat desain yang elegan, sederhana, dan mudah digunakan. Fitur utamanya meliputi:</p>
-      <ul>
-        <li><strong>Grid System</strong> - Menyediakan sistem grid fleksibel yang membantu membangun layout dengan cepat dan mudah.</li>
-        <li><strong>Komponen UI</strong> - Bootstrap 5 menyertakan berbagai komponen seperti tombol, form, dropdown, navbar, dan masih banyak lagi.</li>
-        <li><strong>Utilities</strong> - Memiliki berbagai utilitas untuk menyesuaikan elemen dengan cepat tanpa menulis CSS kustom.</li>
-        <li><strong>Desain Responsif</strong> - Secara otomatis menyesuaikan tampilan untuk berbagai ukuran layar, dari perangkat mobile hingga desktop.</li>
-        <li><strong>Tanpa jQuery</strong> - Bootstrap 5 tidak lagi membutuhkan jQuery, membuatnya lebih ringan dan cepat.</li>
-      </ul>
+      <div class="share-buttons">
+        <strong>Bagikan:</strong><br>
+        <button onclick="window.open('https://wa.me/?text=' + encodeURIComponent(document.title + ' ' + window.location.href), '_blank')">WhatsApp</button>
+        <button onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title + ' ' + window.location.href), '_blank')">Twitter</button>
+        <button onclick="copyLink()">Copy Link</button>
+      </div>
 
-      <p>Dengan adanya perubahan ini, Bootstrap 5 memungkinkan pengembang untuk membuat situs web yang lebih cepat, efisien, dan lebih modern. Selain itu, Bootstrap 5 juga lebih kompatibel dengan berbagai framework JavaScript lainnya.</p>
+      <div class="pagination">
+        <a href="artikel1.html">&laquo; Artikel Sebelumnya</a>
+        
+      </div>
 
-      <p>Jika Anda ingin memulai menggunakan Bootstrap 5, Anda bisa mengunduhnya langsung dari <a href="https://getbootstrap.com" target="_blank">situs resmi Bootstrap</a>.</p>
+      <div class="related-articles">
+        <h3>Rekomendasi Artikel Lainnya</h3>
+        <ul>
+          <li><a href="artikel-uiux.html">5 Tips UI/UX Design</a></li>
+          <li><a href="artikel-css.html">Mengenal Flexbox CSS</a></li>
+          <li><a href="artikel-html.html">Dasar-dasar HTML5</a></li>
+        </ul>
+      </div>
 
-      
+      <div class="comments-section">
+        <h3>Komentar Pengunjung</h3>
+        <div class="comments-list" id="commentsList">
+          <p><strong>Alya:</strong> Wah, sangat membantu penjelasannya. Terima kasih!</p>
+          <p><strong>Bima:</strong> Aku baru tahu kalau Bootstrap 5 udah gak pakai jQuery.</p>
+        </div>
+
+        <h4>Tinggalkan Komentar</h4>
+        <input type="text" id="nameInput" placeholder="Nama Anda">
+        <textarea rows="4" id="commentInput" placeholder="Tulis komentar Anda..."></textarea>
+        <button onclick="submitComment()">Kirim</button>
+      </div>
     </div>
-  </main>
+  </div>
 
   <footer>
     <div class="footer-section">
@@ -139,11 +216,34 @@
       <p>Aliema Blog adalah platform berbagi informasi seputar teknologi, desain, dan gaya hidup. Temukan kami di:</p>
       <p>Facebook | Instagram | LinkedIn</p>
     </div>
-
-
   </footer>
   <div class="footer-bottom">
     &copy; 2025 Aliema Blog. All rights reserved.
   </div>
+
+  <script>
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => alert("Link berhasil disalin!"))
+        .catch(() => alert("Gagal menyalin link."));
+    }
+
+    function submitComment() {
+      const name = document.getElementById('nameInput').value.trim();
+      const comment = document.getElementById('commentInput').value.trim();
+      const commentsList = document.getElementById('commentsList');
+
+      if (name && comment) {
+        const newComment = document.createElement('p');
+        newComment.innerHTML = `<strong>${name}:</strong> ${comment}`;
+        commentsList.appendChild(newComment);
+
+        document.getElementById('nameInput').value = '';
+        document.getElementById('commentInput').value = '';
+      } else {
+        alert('Harap isi nama dan komentar.');
+      }
+    }
+  </script>
 </body>
 </html>

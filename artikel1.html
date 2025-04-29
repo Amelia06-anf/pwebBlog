@@ -80,6 +80,67 @@
       margin-bottom: 20px;
     }
 
+    .article-actions button {
+      margin-right: 10px;
+      padding: 8px 12px;
+      border: none;
+      background-color: #b4af95;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .article-navigation a {
+      font-size: 16px;
+      text-decoration: none;
+      color: #5a5a5a;
+      margin: 10px 0;
+      display: inline-block;
+    }
+
+    .recommended ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .recommended li {
+      margin-bottom: 8px;
+    }
+
+    .comment-section {
+      margin-top: 40px;
+    }
+
+    .comment-list {
+      margin-bottom: 30px;
+    }
+
+    .comment {
+      background-color: #f1f1f1;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      font-family: inherit;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    form button {
+      background-color: #b4af95;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
     footer {
       background-color: #e3d4cf;
       padding: 40px;
@@ -88,8 +149,6 @@
       flex-wrap: wrap;
       margin-top: 60px;
     }
-
-
   </style>
 </head>
 <body>
@@ -98,7 +157,6 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      
     </nav>
   </header>
 
@@ -123,6 +181,54 @@
         <p><strong>5. Uji dan Iterasi</strong><br>
         Tidak ada desain yang sempurna dari awal. Uji desain Anda pada pengguna nyata dan lakukan perbaikan berdasarkan feedback mereka.</p>
       </div>
+
+      <div class="article-actions">
+        <h4>Bagikan Artikel:</h4>
+        <button onclick="shareTo('whatsapp')">WhatsApp</button>
+        <button onclick="shareTo('twitter')">Twitter</button>
+        <button onclick="copyLink()">Salin Link</button>
+      </div>
+
+      <hr style="margin: 40px 0;">
+
+      <div class="article-navigation">
+        
+        <a href="artikel2.html" style="float: right;">Artikel Selanjutnya &rarr;</a>
+      </div>
+
+      <hr style="margin: 40px 0;">
+
+      <div class="recommended">
+        <h4>Rekomendasi Artikel Lainnya</h4>
+        <ul>
+          <li><a href="artikel2.html">Apa itu Bootstrap 5?</a></li>
+          <li><a href="artikel3.html">Mengenal HTML Semantik</a></li>
+          <li><a href="artikel4.html">Tips Menulis di Blog Pribadi</a></li>
+        </ul>
+      </div>
+
+      <hr style="margin: 40px 0;">
+
+      <div class="comment-section">
+        <h4>Komentar Pengunjung</h4>
+        <div class="comment-list">
+          <div class="comment">
+            <strong>Dina:</strong>
+            <p>Artikel ini sangat bermanfaat, terima kasih kak Amelia!</p>
+          </div>
+          <div class="comment">
+            <strong>Raka:</strong>
+            <p>Suka banget penjelasan nomor 4, navigasi memang sering dilupakan.</p>
+          </div>
+        </div>
+
+        <h4>Tinggalkan Komentar</h4>
+        <form onsubmit="submitComment(event)">
+          <input type="text" id="commentName" placeholder="Nama Anda" required><br>
+          <textarea id="commentText" rows="4" placeholder="Komentar Anda..." required></textarea><br>
+          <button type="submit">Kirim Komentar</button>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -132,10 +238,45 @@
       <p>Aliema Blog adalah platform berbagi informasi seputar teknologi, desain, dan gaya hidup. Temukan kami di:</p>
       <p>Facebook | Instagram | LinkedIn</p>
     </div>
-
-
   </footer>
 
+  <script>
+    function shareTo(platform) {
+      const url = window.location.href;
+      const title = document.querySelector('.article-title').innerText;
+      let shareURL = '';
+      if (platform === 'whatsapp') {
+        shareURL = `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`;
+      } else if (platform === 'twitter') {
+        shareURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+      }
+      window.open(shareURL, '_blank');
+    }
 
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('Link disalin ke clipboard!');
+      });
+    }
+
+    function submitComment(event) {
+      event.preventDefault();
+      const name = document.getElementById('commentName').value;
+      const text = document.getElementById('commentText').value;
+
+      const commentHTML = `
+        <div class="comment">
+          <strong>${name}:</strong>
+          <p>${text}</p>
+        </div>
+      `;
+      document.querySelector('.comment-list').innerHTML += commentHTML;
+
+      document.getElementById('commentName').value = '';
+      document.getElementById('commentText').value = '';
+
+      alert("Komentar Anda berhasil dikirim!");
+    }
+  </script>
 </body>
 </html>
